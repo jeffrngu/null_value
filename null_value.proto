@@ -1,0 +1,16 @@
+syntax = "proto3";
+import "google/protobuf/struct.proto";
+option go_package = "test_proto/null_value";
+
+message Foo {
+    KeyValue parameter = 1;
+}
+
+// Generic Key value message
+message KeyValue {
+    string key = 1;
+    oneof value_by_type {
+        string         string_value = 2;
+        google.protobuf.NullValue null_value = 3;
+    }
+}
